@@ -1,0 +1,167 @@
+Info 0    [22:44:47.867] Starting TS Server
+Info 1    [22:44:47.868] Version: 5.2.2
+Info 2    [22:44:47.868] Arguments: /usr/local/bin/node /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/tsserver.js --serverMode partialSemantic --useInferredProjectPerProjectRoot --disableAutomaticTypingAcquisition --cancellationPipeName /private/var/folders/1k/1hld73x1599dxmy2mtdx1jg00000gn/T/2db4b40e26d31d72b725881579edfff8/tscancellation* --logVerbosity verbose --logFile /Users/joshuaying/emblem/semantic-graph/test-ts/src/.log/tsserver-log-99PgM5/tsserver.log --locale en --validateDefaultNpmLocation --useNodeIpc
+Info 3    [22:44:47.868] Platform: darwin NodeVersion: v19.6.0 CaseSensitive: false
+Info 4    [22:44:47.868] ServerMode: 1 hasUnknownServerMode: undefined
+Info 5    [22:44:47.871] request:
+    {
+      "seq": 0,
+      "type": "request",
+      "command": "configure",
+      "arguments": {
+        "formatOptions": {
+          "newLineCharacter": "\n"
+        },
+        "preferences": {
+          "allowIncompleteCompletions": true,
+          "allowRenameOfImportPath": true,
+          "allowTextChangesInNewFiles": true,
+          "disableLineTextInReferences": true,
+          "disableSuggestions": false,
+          "displayPartsForJSDoc": true,
+          "generateReturnInDocTemplate": true,
+          "importModuleSpecifierEnding": "auto",
+          "importModuleSpecifierPreference": "shortest",
+          "includeAutomaticOptionalChainCompletions": true,
+          "includeCompletionsForImportStatements": true,
+          "includeCompletionsForModuleExports": true,
+          "includeCompletionsWithClassMemberSnippets": true,
+          "includeCompletionsWithInsertText": true,
+          "includeCompletionsWithObjectLiteralMethodSnippets": true,
+          "includeCompletionsWithSnippetText": true,
+          "includeInlayEnumMemberValueHints": false,
+          "includeInlayFunctionLikeReturnTypeHints": false,
+          "includeInlayFunctionParameterTypeHints": false,
+          "includeInlayParameterNameHints": "none",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": false,
+          "includeInlayVariableTypeHints": false,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includePackageJsonAutoImports": "auto",
+          "jsxAttributeCompletionStyle": "auto",
+          "lazyConfiguredProjectsFromExternalProject": false,
+          "organizeImportsAccentCollation": true,
+          "organizeImportsCaseFirst": false,
+          "organizeImportsCollation": "ordinal",
+          "organizeImportsCollationLocale": "en",
+          "organizeImportsIgnoreCase": "auto",
+          "organizeImportsNumericCollation": false,
+          "providePrefixAndSuffixTextForRename": true,
+          "provideRefactorNotApplicableReason": true,
+          "quotePreference": "auto"
+        }
+      }
+    }
+Info 6    [22:44:47.871] Format host information updated
+Info 7    [22:44:47.872] response:
+    {"seq":0,"type":"response","command":"configure","request_seq":0,"success":true}
+Perf 8    [22:44:47.872] 0::configure: async elapsed time (in milliseconds) 0.4810
+Info 9    [22:44:47.872] request:
+    {
+      "seq": 1,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "fileContent": "\n// // demonstrating why we need to bubble up from child to parent\n// type WrappedType = number | void;\n\n// type WrapperType = {\n//   a: string,\n//   b: WrappedType\n// }\n\n// function f() {\n//   const x: WrapperType = {\n//     a: 'hello',\n//     b: 5\n//   }\n\n//   console.log(x.b);\n// }\n\n// interface I {\n//   m(): string;\n// }\n\n// class C implements I {\n//   m() {\n//     return \"hello\";\n//   }\n// }\n\n\n\n// Tests for LSP idiosyncracy where subclass overriding / implementation methods are referencedBy the superclass method/field.\n// method1 should NOT referenceInDefinition B.method2 (only A.method2)\nabstract class A {\n  method1() {\n    this.method2()\n  }\n  abstract method2();\n}\n\nclass B extends A {\n  method2() {}\n}\n\n\n\n/*\n// Tests for bubbling children's referenceInDefinition up to parents.\n// A should referenceInDefinition B.\nfunction B() {}\n\nclass A {\n  m1() {\n    B()\n  }\n}\n*/",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 10   [22:44:47.874] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 11   [22:44:48.059] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 184.85283279418945ms
+Info 12   [22:44:48.059] Project '/dev/null/inferredProject1*' (Inferred)
+Info 13   [22:44:48.060] 	Files (8)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	index.ts
+	  Root file specified for compilation
+
+Info 14   [22:44:48.060] -----------------------------------------------
+Info 15   [22:44:48.060] Project '/dev/null/inferredProject1*' (Inferred)
+Info 15   [22:44:48.060] 	Files (8)
+
+Info 15   [22:44:48.060] -----------------------------------------------
+Info 15   [22:44:48.060] Open files: 
+Info 15   [22:44:48.060] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 15   [22:44:48.060] 		Projects: /dev/null/inferredProject1*
+Perf 15   [22:44:48.060] 1::open: async elapsed time (in milliseconds) 188.0277
+Info 16   [22:44:48.060] request:
+    {
+      "seq": 2,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts"
+      }
+    }
+Perf 17   [22:44:48.069] 2::navtree: elapsed time (in milliseconds) 8.8900
+Info 18   [22:44:48.069] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":2,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":56,"offset":3}}],"childItems":[{"text":"A","kind":"class","kindModifiers":"abstract","spans":[{"start":{"line":33,"offset":1},"end":{"line":38,"offset":2}}],"nameSpan":{"start":{"line":33,"offset":16},"end":{"line":33,"offset":17}},"childItems":[{"text":"method1","kind":"method","kindModifiers":"","spans":[{"start":{"line":34,"offset":3},"end":{"line":36,"offset":4}}],"nameSpan":{"start":{"line":34,"offset":3},"end":{"line":34,"offset":10}}},{"text":"method2","kind":"method","kindModifiers":"abstract","spans":[{"start":{"line":37,"offset":3},"end":{"line":37,"offset":22}}],"nameSpan":{"start":{"line":37,"offset":12},"end":{"line":37,"offset":19}}}]},{"text":"B","kind":"class","kindModifiers":"","spans":[{"start":{"line":40,"offset":1},"end":{"line":42,"offset":2}}],"nameSpan":{"start":{"line":40,"offset":7},"end":{"line":40,"offset":8}},"childItems":[{"text":"method2","kind":"method","kindModifiers":"","spans":[{"start":{"line":41,"offset":3},"end":{"line":41,"offset":15}}],"nameSpan":{"start":{"line":41,"offset":3},"end":{"line":41,"offset":10}}}]}]}}
+Info 19   [22:44:48.072] request:
+    {
+      "seq": 3,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "line": 33,
+        "offset": 1
+      }
+    }
+Info 20   [22:44:48.073] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts position 601 in project /dev/null/inferredProject1*
+Perf 21   [22:44:48.100] 3::references: elapsed time (in milliseconds) 28.7116
+Info 22   [22:44:48.100] response:
+    {"seq":0,"type":"response","command":"references","request_seq":3,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","start":{"line":33,"offset":16},"end":{"line":33,"offset":17},"contextStart":{"line":33,"offset":1},"contextEnd":{"line":38,"offset":2},"isWriteAccess":true,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","start":{"line":40,"offset":17},"end":{"line":40,"offset":18},"isWriteAccess":false,"isDefinition":false}],"symbolName":"","symbolStartOffset":0,"symbolDisplayString":""}}
+Info 23   [22:44:48.103] request:
+    {
+      "seq": 4,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "line": 34,
+        "offset": 3
+      }
+    }
+Info 24   [22:44:48.105] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts position 622 in project /dev/null/inferredProject1*
+Perf 25   [22:44:48.108] 4::references: elapsed time (in milliseconds) 4.7307
+Info 26   [22:44:48.108] response:
+    {"seq":0,"type":"response","command":"references","request_seq":4,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","start":{"line":34,"offset":3},"end":{"line":34,"offset":10},"contextStart":{"line":34,"offset":3},"contextEnd":{"line":36,"offset":4},"isWriteAccess":true,"isDefinition":true}],"symbolName":"method1","symbolStartOffset":3,"symbolDisplayString":"(method) A.method1(): void"}}
+Info 27   [22:44:48.109] request:
+    {
+      "seq": 5,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "line": 37,
+        "offset": 3
+      }
+    }
+Info 28   [22:44:48.109] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts position 659 in project /dev/null/inferredProject1*
+Perf 29   [22:44:48.112] 5::references: elapsed time (in milliseconds) 3.2569
+Info 30   [22:44:48.112] response:
+    {"seq":0,"type":"response","command":"references","request_seq":5,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","start":{"line":35,"offset":10},"end":{"line":35,"offset":17},"isWriteAccess":false,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","start":{"line":37,"offset":12},"end":{"line":37,"offset":19},"contextStart":{"line":37,"offset":3},"contextEnd":{"line":37,"offset":22},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","start":{"line":41,"offset":3},"end":{"line":41,"offset":10},"contextStart":{"line":41,"offset":3},"contextEnd":{"line":41,"offset":15},"isWriteAccess":true,"isDefinition":false}],"symbolName":"","symbolStartOffset":0,"symbolDisplayString":""}}

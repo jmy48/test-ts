@@ -1,0 +1,310 @@
+Info 0    [21:02:01.822] Starting TS Server
+Info 1    [21:02:01.823] Version: 5.2.2
+Info 2    [21:02:01.823] Arguments: /usr/local/bin/node /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/tsserver.js --serverMode partialSemantic --useInferredProjectPerProjectRoot --disableAutomaticTypingAcquisition --cancellationPipeName /private/var/folders/1k/1hld73x1599dxmy2mtdx1jg00000gn/T/82a20c44768660bba7ddbc556762759f/tscancellation* --logVerbosity verbose --logFile /Users/joshuaying/emblem/semantic-graph/test-ts/src/.log/tsserver-log-yKi0GC/tsserver.log --locale en --validateDefaultNpmLocation --useNodeIpc
+Info 3    [21:02:01.823] Platform: darwin NodeVersion: v19.6.0 CaseSensitive: false
+Info 4    [21:02:01.823] ServerMode: 1 hasUnknownServerMode: undefined
+Info 5    [21:02:01.826] request:
+    {
+      "seq": 0,
+      "type": "request",
+      "command": "configure",
+      "arguments": {
+        "formatOptions": {
+          "newLineCharacter": "\n"
+        },
+        "preferences": {
+          "allowIncompleteCompletions": true,
+          "allowRenameOfImportPath": true,
+          "allowTextChangesInNewFiles": true,
+          "disableLineTextInReferences": true,
+          "disableSuggestions": false,
+          "displayPartsForJSDoc": true,
+          "generateReturnInDocTemplate": true,
+          "importModuleSpecifierEnding": "auto",
+          "importModuleSpecifierPreference": "shortest",
+          "includeAutomaticOptionalChainCompletions": true,
+          "includeCompletionsForImportStatements": true,
+          "includeCompletionsForModuleExports": true,
+          "includeCompletionsWithClassMemberSnippets": true,
+          "includeCompletionsWithInsertText": true,
+          "includeCompletionsWithObjectLiteralMethodSnippets": true,
+          "includeCompletionsWithSnippetText": true,
+          "includeInlayEnumMemberValueHints": false,
+          "includeInlayFunctionLikeReturnTypeHints": false,
+          "includeInlayFunctionParameterTypeHints": false,
+          "includeInlayParameterNameHints": "none",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": false,
+          "includeInlayVariableTypeHints": false,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includePackageJsonAutoImports": "auto",
+          "jsxAttributeCompletionStyle": "auto",
+          "lazyConfiguredProjectsFromExternalProject": false,
+          "organizeImportsAccentCollation": true,
+          "organizeImportsCaseFirst": false,
+          "organizeImportsCollation": "ordinal",
+          "organizeImportsCollationLocale": "en",
+          "organizeImportsIgnoreCase": "auto",
+          "organizeImportsNumericCollation": false,
+          "providePrefixAndSuffixTextForRename": true,
+          "provideRefactorNotApplicableReason": true,
+          "quotePreference": "auto"
+        }
+      }
+    }
+Info 6    [21:02:01.827] Format host information updated
+Info 7    [21:02:01.827] response:
+    {"seq":0,"type":"response","command":"configure","request_seq":0,"success":true}
+Perf 8    [21:02:01.827] 0::configure: async elapsed time (in milliseconds) 0.4598
+Info 9    [21:02:01.827] request:
+    {
+      "seq": 1,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "fileContent": "// abstract class SequenceGenerator<T> {\n//     combiner: Combiner<T>;\n//     windowSize: number;\n//     generationLength: number;\n\n//     constructor(windowSize: number, generationLength: number, combiner: Combiner<T>) {\n//         this.windowSize = windowSize;\n//         this.generationLength = generationLength;\n//         this.combiner = combiner;\n//     }\n\n//     generateSequence(): T[] {\n//         var sequence = this.getStartingSequence();\n//         for (var i = 0; i < this.generationLength; i++) {\n//             const latest_window = sequence.slice(sequence.length - this.windowSize);\n//             sequence.push(this.combiner.combine(latest_window))\n//         }\n//         return sequence;\n//     }\n\n//     abstract getStartingSequence(): T[];\n// }\n\n\n// interface Combiner<T> {\n//     combine(l: T[]): T\n// }\n\n// class NumberAdder implements Combiner<number> {\n//     combine(l: number[]): number {\n//         return l.reduce((prev, curr) => prev + curr)\n//     }\n// }\n\n// class ConcreteSequenceGenerator extends SequenceGenerator<number> {\n//     constructor(generationLength: number) {\n//         super(2, generationLength, new NumberAdder());\n//     }\n\n//     getStartingSequence(): number[] {\n//         return [0, 1];\n//     }\n// }\n\n// function main() {\n//     console.log((new ConcreteSequenceGenerator(10)).generateSequence());\n// }\n\n// main();",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 10   [21:02:01.829] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 11   [21:02:02.031] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 201.21583366394043ms
+Info 12   [21:02:02.031] Project '/dev/null/inferredProject1*' (Inferred)
+Info 13   [21:02:02.032] 	Files (8)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	sequence-generator.ts
+	  Root file specified for compilation
+
+Info 14   [21:02:02.032] -----------------------------------------------
+Info 15   [21:02:02.032] Project '/dev/null/inferredProject1*' (Inferred)
+Info 15   [21:02:02.032] 	Files (8)
+
+Info 15   [21:02:02.032] -----------------------------------------------
+Info 15   [21:02:02.032] Open files: 
+Info 15   [21:02:02.032] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 15   [21:02:02.032] 		Projects: /dev/null/inferredProject1*
+Perf 15   [21:02:02.032] 1::open: async elapsed time (in milliseconds) 204.4660
+Info 16   [21:02:02.032] request:
+    {
+      "seq": 2,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "fileContent": "// // demonstrating why we need to bubble up from child to parent\n// type WrappedType = number | void;\n\n// type WrapperType = {\n//   a: string,\n//   b: WrappedType\n// }\n\n// function f() {\n//   const x: WrapperType = {\n//     a: 'hello',\n//     b: 5\n//   }\n\n//   console.log(x.b);\n// }\n\n// interface I {\n//   m(): string;\n// }\n\n// class C implements I {\n//   m() {\n//     return \"hello\";\n//   }\n// }\n\n\n\n/*\n// Tests for LSP idiosyncracy where subclass overriding / implementation methods are referencedBy the superclass method/field.\n// method1 should NOT referenceInDefinition B.method2 (only A.method2)\nabstract class A {\n  method1() {\n    this.method2()\n  }\n  abstract method2();\n}\n\nclass B extends A {\n  method2() {}\n}\n*/\n\n\n\n/*\n// Tests for bubbling children's referenceInDefinition up to parents.\n// A should referenceInDefinition B.\nfunction B() {}\n\nclass A {\n  m1() {\n    B()\n  }\n}\n*/\n\n// class A {\n//   b: B\n// }\n\n// class B {\n//   a: A\n//   constructor(a: A) {\n//     this.a = a;\n//     this.a.b = this;\n//   }\n// }\n\n// console.log(new B(new A()));",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 17   [21:02:02.032] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 18   [21:02:02.034] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 2 structureChanged: true structureIsReused:: Not Elapsed: 2.1233339309692383ms
+Info 19   [21:02:02.034] Project '/dev/null/inferredProject1*' (Inferred)
+Info 20   [21:02:02.035] 	Files (9)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	sequence-generator.ts
+	  Root file specified for compilation
+	index.ts
+	  Root file specified for compilation
+
+Info 21   [21:02:02.035] -----------------------------------------------
+Info 22   [21:02:02.035] Project '/dev/null/inferredProject1*' (Inferred)
+Info 22   [21:02:02.035] 	Files (9)
+
+Info 22   [21:02:02.035] -----------------------------------------------
+Info 22   [21:02:02.035] Open files: 
+Info 22   [21:02:02.035] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 22   [21:02:02.035] 		Projects: /dev/null/inferredProject1*
+Info 22   [21:02:02.035] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 22   [21:02:02.035] 		Projects: /dev/null/inferredProject1*
+Perf 22   [21:02:02.035] 2::open: async elapsed time (in milliseconds) 2.7212
+Info 23   [21:02:02.035] request:
+    {
+      "seq": 3,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "fileContent": "class A {\n    aField: number\n    constructor() {\n        this.aField = 3\n    }\n    M() {\n        const b = new B();\n        b.C();\n        b.bField2;\n        this.aField;\n    }\n}\n\nclass B {\n    bField: number\n    bField2: number\n    bField3: number\n    constructor() {\n        this.bField = 4;\n        this.bField2 = 6;\n    }\n\n    C() {\n        this.bField;\n    }\n\n    D() {\n\n    }\n}",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 24   [21:02:02.035] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 25   [21:02:02.038] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 3 structureChanged: true structureIsReused:: Not Elapsed: 3.318124771118164ms
+Info 26   [21:02:02.038] Project '/dev/null/inferredProject1*' (Inferred)
+Info 27   [21:02:02.038] 	Files (10)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	sequence-generator.ts
+	  Root file specified for compilation
+	index.ts
+	  Root file specified for compilation
+	bfs-test.ts
+	  Root file specified for compilation
+
+Info 28   [21:02:02.038] -----------------------------------------------
+Info 29   [21:02:02.039] Project '/dev/null/inferredProject1*' (Inferred)
+Info 29   [21:02:02.039] 	Files (10)
+
+Info 29   [21:02:02.039] -----------------------------------------------
+Info 29   [21:02:02.039] Open files: 
+Info 29   [21:02:02.039] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 29   [21:02:02.039] 		Projects: /dev/null/inferredProject1*
+Info 29   [21:02:02.039] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 29   [21:02:02.039] 		Projects: /dev/null/inferredProject1*
+Info 29   [21:02:02.039] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 29   [21:02:02.042] 		Projects: /dev/null/inferredProject1*
+Perf 29   [21:02:02.042] 3::open: async elapsed time (in milliseconds) 7.1937
+Info 30   [21:02:02.042] request:
+    {
+      "seq": 4,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts"
+      }
+    }
+Perf 31   [21:02:02.043] 4::navtree: elapsed time (in milliseconds) 0.7977
+Info 32   [21:02:02.043] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":4,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":49,"offset":11}}]}}
+Info 33   [21:02:02.046] request:
+    {
+      "seq": 5,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts"
+      }
+    }
+Perf 34   [21:02:02.046] 5::navtree: elapsed time (in milliseconds) 0.2565
+Info 35   [21:02:02.046] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":5,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":71,"offset":32}}]}}
+Info 36   [21:02:02.047] request:
+    {
+      "seq": 6,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts"
+      }
+    }
+Perf 37   [21:02:02.056] 6::navtree: elapsed time (in milliseconds) 8.9100
+Info 38   [21:02:02.056] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":6,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":30,"offset":2}}],"childItems":[{"text":"A","kind":"class","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":12,"offset":2}}],"nameSpan":{"start":{"line":1,"offset":7},"end":{"line":1,"offset":8}},"childItems":[{"text":"constructor","kind":"constructor","kindModifiers":"","spans":[{"start":{"line":3,"offset":5},"end":{"line":5,"offset":6}}]},{"text":"aField","kind":"property","kindModifiers":"","spans":[{"start":{"line":2,"offset":5},"end":{"line":2,"offset":19}}],"nameSpan":{"start":{"line":2,"offset":5},"end":{"line":2,"offset":11}}},{"text":"M","kind":"method","kindModifiers":"","spans":[{"start":{"line":6,"offset":5},"end":{"line":11,"offset":6}}],"nameSpan":{"start":{"line":6,"offset":5},"end":{"line":6,"offset":6}},"childItems":[{"text":"b","kind":"const","kindModifiers":"","spans":[{"start":{"line":7,"offset":15},"end":{"line":7,"offset":26}}],"nameSpan":{"start":{"line":7,"offset":15},"end":{"line":7,"offset":16}}}]}]},{"text":"B","kind":"class","kindModifiers":"","spans":[{"start":{"line":14,"offset":1},"end":{"line":30,"offset":2}}],"nameSpan":{"start":{"line":14,"offset":7},"end":{"line":14,"offset":8}},"childItems":[{"text":"constructor","kind":"constructor","kindModifiers":"","spans":[{"start":{"line":18,"offset":5},"end":{"line":21,"offset":6}}]},{"text":"bField","kind":"property","kindModifiers":"","spans":[{"start":{"line":15,"offset":5},"end":{"line":15,"offset":19}}],"nameSpan":{"start":{"line":15,"offset":5},"end":{"line":15,"offset":11}}},{"text":"bField2","kind":"property","kindModifiers":"","spans":[{"start":{"line":16,"offset":5},"end":{"line":16,"offset":20}}],"nameSpan":{"start":{"line":16,"offset":5},"end":{"line":16,"offset":12}}},{"text":"bField3","kind":"property","kindModifiers":"","spans":[{"start":{"line":17,"offset":5},"end":{"line":17,"offset":20}}],"nameSpan":{"start":{"line":17,"offset":5},"end":{"line":17,"offset":12}}},{"text":"C","kind":"method","kindModifiers":"","spans":[{"start":{"line":23,"offset":5},"end":{"line":25,"offset":6}}],"nameSpan":{"start":{"line":23,"offset":5},"end":{"line":23,"offset":6}}},{"text":"D","kind":"method","kindModifiers":"","spans":[{"start":{"line":27,"offset":5},"end":{"line":29,"offset":6}}],"nameSpan":{"start":{"line":27,"offset":5},"end":{"line":27,"offset":6}}}]}]}}
+Info 39   [21:02:02.059] request:
+    {
+      "seq": 7,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 1,
+        "offset": 1
+      }
+    }
+Info 40   [21:02:02.062] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 0 in project /dev/null/inferredProject1*
+Perf 41   [21:02:02.088] 7::references: elapsed time (in milliseconds) 29.0137
+Info 42   [21:02:02.088] response:
+    {"seq":0,"type":"response","command":"references","request_seq":7,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":1,"offset":7},"end":{"line":1,"offset":8},"contextStart":{"line":1,"offset":1},"contextEnd":{"line":12,"offset":2},"isWriteAccess":true,"isDefinition":true}],"symbolName":"class","symbolStartOffset":1,"symbolDisplayString":"class A"}}
+Info 43   [21:02:02.089] request:
+    {
+      "seq": 8,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 2,
+        "offset": 5
+      }
+    }
+Info 44   [21:02:02.089] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 14 in project /dev/null/inferredProject1*
+Perf 45   [21:02:02.095] 8::references: elapsed time (in milliseconds) 5.8751
+Info 46   [21:02:02.095] response:
+    {"seq":0,"type":"response","command":"references","request_seq":8,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":2,"offset":5},"end":{"line":2,"offset":11},"contextStart":{"line":2,"offset":5},"contextEnd":{"line":2,"offset":19},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":4,"offset":14},"end":{"line":4,"offset":20},"isWriteAccess":true,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":10,"offset":14},"end":{"line":10,"offset":20},"isWriteAccess":false,"isDefinition":false}],"symbolName":"aField","symbolStartOffset":5,"symbolDisplayString":"(property) A.aField: number"}}
+Info 47   [21:02:02.096] request:
+    {
+      "seq": 9,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 3,
+        "offset": 5
+      }
+    }
+Info 48   [21:02:02.096] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 33 in project /dev/null/inferredProject1*
+Perf 49   [21:02:02.101] 9::references: elapsed time (in milliseconds) 4.9922
+Info 50   [21:02:02.101] response:
+    {"seq":0,"type":"response","command":"references","request_seq":9,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":3,"offset":5},"end":{"line":3,"offset":16},"contextStart":{"line":3,"offset":5},"contextEnd":{"line":5,"offset":6},"isWriteAccess":false,"isDefinition":true}],"symbolName":"constructor","symbolStartOffset":5,"symbolDisplayString":"constructor A(): A"}}

@@ -1,0 +1,325 @@
+Info 0    [17:39:31.866] Starting TS Server
+Info 1    [17:39:31.866] Version: 5.2.2
+Info 2    [17:39:31.866] Arguments: /usr/local/bin/node /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/tsserver.js --serverMode partialSemantic --useInferredProjectPerProjectRoot --disableAutomaticTypingAcquisition --cancellationPipeName /private/var/folders/1k/1hld73x1599dxmy2mtdx1jg00000gn/T/543231910bf504a0148ad6377139db12/tscancellation* --logVerbosity verbose --logFile /Users/joshuaying/emblem/semantic-graph/test-ts/src/.log/tsserver-log-xjLTmA/tsserver.log --locale en --validateDefaultNpmLocation --useNodeIpc
+Info 3    [17:39:31.866] Platform: darwin NodeVersion: v19.6.0 CaseSensitive: false
+Info 4    [17:39:31.866] ServerMode: 1 hasUnknownServerMode: undefined
+Info 5    [17:39:31.870] request:
+    {
+      "seq": 0,
+      "type": "request",
+      "command": "configure",
+      "arguments": {
+        "formatOptions": {
+          "newLineCharacter": "\n"
+        },
+        "preferences": {
+          "allowIncompleteCompletions": true,
+          "allowRenameOfImportPath": true,
+          "allowTextChangesInNewFiles": true,
+          "disableLineTextInReferences": true,
+          "disableSuggestions": false,
+          "displayPartsForJSDoc": true,
+          "generateReturnInDocTemplate": true,
+          "importModuleSpecifierEnding": "auto",
+          "importModuleSpecifierPreference": "shortest",
+          "includeAutomaticOptionalChainCompletions": true,
+          "includeCompletionsForImportStatements": true,
+          "includeCompletionsForModuleExports": true,
+          "includeCompletionsWithClassMemberSnippets": true,
+          "includeCompletionsWithInsertText": true,
+          "includeCompletionsWithObjectLiteralMethodSnippets": true,
+          "includeCompletionsWithSnippetText": true,
+          "includeInlayEnumMemberValueHints": false,
+          "includeInlayFunctionLikeReturnTypeHints": false,
+          "includeInlayFunctionParameterTypeHints": false,
+          "includeInlayParameterNameHints": "none",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": false,
+          "includeInlayVariableTypeHints": false,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includePackageJsonAutoImports": "auto",
+          "jsxAttributeCompletionStyle": "auto",
+          "lazyConfiguredProjectsFromExternalProject": false,
+          "organizeImportsAccentCollation": true,
+          "organizeImportsCaseFirst": false,
+          "organizeImportsCollation": "ordinal",
+          "organizeImportsCollationLocale": "en",
+          "organizeImportsIgnoreCase": "auto",
+          "organizeImportsNumericCollation": false,
+          "providePrefixAndSuffixTextForRename": true,
+          "provideRefactorNotApplicableReason": true,
+          "quotePreference": "auto"
+        }
+      }
+    }
+Info 6    [17:39:31.870] Format host information updated
+Info 7    [17:39:31.870] response:
+    {"seq":0,"type":"response","command":"configure","request_seq":0,"success":true}
+Perf 8    [17:39:31.871] 0::configure: async elapsed time (in milliseconds) 0.4674
+Info 9    [17:39:31.871] request:
+    {
+      "seq": 1,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "fileContent": "////The SequenceGenerator class is an abstract class that allows for the creation\n//of\n////sequences of any type. It has a generic type parameter T, which allows for\n//the\n////generation of sequences of any type. The class has three properties:\n//combiner,\n////windowSize, and generationLength. The combiner property is of type\n//Combiner<T>,\n////which is an interface that defines a method for combining\n//elements of type T.\n////The windowSize property is a number that determines the\n//size of the window used\n////for combining elements in the sequence. The\n//generationLength property is also a\n////number that determines the length of the\n//sequence to be generated.\n//\n////The constructor of the SequenceGenerator class\n//takes in three parameters:\n////windowSize, generationLength, and combiner. These\n//parameters are used to\n////initialize the corresponding properties of the class.\n//The constructor ensures\n////that the properties are properly set before the\n//sequence generation process\n////begins.\n//\n////The generateSequence method is\n//responsible for generating the sequence. It uses\n////the getStartingSequence\n//method, which is an abstract method that must be\n////implemented by any class that\n//extends the SequenceGenerator class. This method\n////returns the starting sequence\n//for the generation process. The generateSequence\n////method then uses a for loop\n//to iterate through the generationLength and\n////generate the sequence by combining\n//the latest window of elements using the\n////combiner's combine method. The final\n//sequence is then returned.\n//\n////Overall, the SequenceGenerator class provides a\n//flexible and customizable way\n////to generate sequences of any type by allowing\n//for the use of different types of\n////combiners and window sizes. It also promotes\n//code reusability by using the\n////generic type parameter and abstract\n//methods.\n//ce-generator.ts__0_0-21_1[Class][SequenceGenerator]\nabstract class SequenceGenerator<T> {\n// ce-generator.ts__1_4-1_26[Property][combiner]\n    combiner: Combiner<T>;\n// ce-generator.ts__2_4-2_23[Property][windowSize]\n    windowSize: number;\n// ce-generator.ts__3_4-3_29[Property][generationLength]\n    generationLength: number;\n\n// ce-generator.ts__5_4-9_5[Method][constructor]\n    constructor(windowSize: number, generationLength: number, combiner: Combiner<T>) {\n        this.windowSize = windowSize;\n        this.generationLength = generationLength;\n        this.combiner = combiner;\n    }\n\n// ce-generator.ts__11_4-18_5[Method][generateSequence]\n    generateSequence(): T[] {\n        var sequence = this.getStartingSequence();\n        for (var i = 0; i < this.generationLength; i++) {\n            const latest_window = sequence.slice(sequence.length - this.windowSize);\n            sequence.push(this.combiner.combine(latest_window))\n        }\n        return sequence;\n    }\n\n// ce-generator.ts__20_4-20_40[Method][getStartingSequence]\n    abstract getStartingSequence(): T[];\n}\n\n\n//ce-generator.ts__24_0-26_1[Interface][Combiner]\ninterface Combiner<T> {\n// ce-generator.ts__25_4-25_22[Method][combine]\n    combine(l: T[]): T\n}\n\n//The class NumberAdder is a type of Combiner that specifically works with\n//numbers. It has a method called combine that takes in an array of numbers and\n//returns a single number that is the sum of all the numbers in the array. This is\n//achieved by using the reduce method on the array, which iterates through each\n//element and adds it to the previous element until a single value is returned.\n//The class implements the Combiner interface, which allows it to work with any\n//type of data as long as it has a combine method that takes in an array of that\n//type and returns a single value of that type. This makes the NumberAdder class\n//versatile and reusable for different types of\n//data.\n//ce-generator.ts__28_0-32_1[Class][NumberAdder]\nclass NumberAdder implements Combiner<number> {\n// ce-generator.ts__29_4-31_5[Method][combine]\n    combine(l: number[]): number {\n        return l.reduce((prev, curr) => prev + curr)\n    }\n}\n\n//ce-generator.ts__34_0-42_1[Class][ConcreteSequenceGenerator]\nclass ConcreteSequenceGenerator extends SequenceGenerator<number> {\n// ce-generator.ts__35_4-37_5[Method][constructor]\n    constructor(generationLength: number) {\n        super(2, generationLength, new NumberAdder());\n    }\n\n// ce-generator.ts__39_4-41_5[Method][getStartingSequence]\n    getStartingSequence(): number[] {\n        return [0, 1];\n    }\n}\n\n////The ConcreteSequenceGenerator class extends the SequenceGenerator class\n//and\n////provides a concrete implementation of the getStartingSequence method. It\n//takes\n////in a generationLength parameter and uses it to initialize the\n//generationLength\n////property of the parent class. It also takes in a NumberAdder\n//instance as the\n////combiner, which is used to combine the elements in the\n//sequence. This class\n////demonstrates how the SequenceGenerator class can be\n//extended and customized\n////for specific use cases. The generateSequence method is\n//called in the main\n////function, which creates a new instance of the\n//ConcreteSequenceGenerator class\n////with a generationLength of 10 and calls the\n//generateSequence method to generate\n////a sequence of numbers. The result is then\n//logged to the console using the\n////console.log method. This shows how the\n//SequenceGenerator class can be used in\n////a practical\n//application.\n//ce-generator.ts__44_0-46_1[Function][main]\nfunction main() {\n    console.log((new ConcreteSequenceGenerator(10)).generateSequence());\n}\n\nmain();",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 10   [17:39:31.873] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 11   [17:39:32.078] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 205.03020811080933ms
+Info 12   [17:39:32.078] Project '/dev/null/inferredProject1*' (Inferred)
+Info 13   [17:39:32.079] 	Files (8)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	sequence-generator.ts
+	  Root file specified for compilation
+
+Info 14   [17:39:32.079] -----------------------------------------------
+Info 15   [17:39:32.079] Project '/dev/null/inferredProject1*' (Inferred)
+Info 15   [17:39:32.079] 	Files (8)
+
+Info 15   [17:39:32.079] -----------------------------------------------
+Info 15   [17:39:32.079] Open files: 
+Info 15   [17:39:32.079] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 15   [17:39:32.079] 		Projects: /dev/null/inferredProject1*
+Perf 15   [17:39:32.079] 1::open: async elapsed time (in milliseconds) 208.2830
+Info 16   [17:39:32.080] request:
+    {
+      "seq": 2,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "fileContent": "// // demonstrating why we need to bubble up from child to parent\n// type WrappedType = number | void;\n\n// type WrapperType = {\n//   a: string,\n//   b: WrappedType\n// }\n\n// function f() {\n//   const x: WrapperType = {\n//     a: 'hello',\n//     b: 5\n//   }\n\n//   console.log(x.b);\n// }\n\n// interface I {\n//   m(): string;\n// }\n\n// class C implements I {\n//   m() {\n//     return \"hello\";\n//   }\n// }\n\n\n\n/*\n// Tests for LSP idiosyncracy where subclass overriding / implementation methods are referencedBy the superclass method/field.\n// method1 should NOT referenceInDefinition B.method2 (only A.method2)\nabstract class A {\n  method1() {\n    this.method2()\n  }\n  abstract method2();\n}\n\nclass B extends A {\n  method2() {}\n}\n*/\n\n\n\n/*\n// Tests for bubbling children's referenceInDefinition up to parents.\n// A should referenceInDefinition B.\nfunction B() {}\n\nclass A {\n  m1() {\n    B()\n  }\n}\n*/\n\n// class A {\n//   b: B\n// }\n\n// class B {\n//   a: A\n//   constructor(a: A) {\n//     this.a = a;\n//     this.a.b = this;\n//   }\n// }\n\n// console.log(new B(new A()));",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 17   [17:39:32.080] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 18   [17:39:32.082] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 2 structureChanged: true structureIsReused:: Not Elapsed: 1.8658337593078613ms
+Info 19   [17:39:32.082] Project '/dev/null/inferredProject1*' (Inferred)
+Info 20   [17:39:32.082] 	Files (9)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	sequence-generator.ts
+	  Root file specified for compilation
+	index.ts
+	  Root file specified for compilation
+
+Info 21   [17:39:32.082] -----------------------------------------------
+Info 22   [17:39:32.082] Project '/dev/null/inferredProject1*' (Inferred)
+Info 22   [17:39:32.082] 	Files (9)
+
+Info 22   [17:39:32.082] -----------------------------------------------
+Info 22   [17:39:32.082] Open files: 
+Info 22   [17:39:32.082] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 22   [17:39:32.082] 		Projects: /dev/null/inferredProject1*
+Info 22   [17:39:32.082] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 22   [17:39:32.082] 		Projects: /dev/null/inferredProject1*
+Perf 22   [17:39:32.082] 2::open: async elapsed time (in milliseconds) 2.4240
+Info 23   [17:39:32.082] request:
+    {
+      "seq": 3,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "fileContent": "//st.ts__0_0-11_1[Class][A]\nclass A {\n// st.ts__1_4-1_18[Property][aField]\n    aField: number\n// st.ts__2_4-4_5[Method][constructor]\n    constructor() {\n        this.aField = 3\n    }\n// st.ts__5_4-10_5[Method][M]\n    M() {\n        const b = new B();\n        b.C();\n        b.bField2;\n        this.aField;\n    }\n}\n\n//Class B is a blueprint for creating objects that have three fields: bField,\n//bField2, and bField3. These fields are all of type number. The constructor\n//function initializes the values of bField and bField2 to 4 and 6, respectively.\n//The C method allows access to the value of bField, while the D method does not\n//have any functionality. This class can be used to create objects with specific\n//numerical properties and methods.\n//st.ts__13_0-29_1[Class][B]\nclass B {\n// st.ts__14_4-14_18[Property][bField]\n    bField: number\n// st.ts__15_4-15_19[Property][bField2]\n    bField2: number\n// st.ts__16_4-16_19[Property][bField3]\n    bField3: number\n// st.ts__17_4-20_5[Method][constructor]\n    constructor() {\n        this.bField = 4;\n        this.bField2 = 6;\n    }\n\n// st.ts__22_4-24_5[Method][C]\n    C() {\n        this.bField;\n    }\n\n// st.ts__26_4-28_5[Method][D]\n    D() {\n\n    }\n}",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 24   [17:39:32.082] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 25   [17:39:32.084] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 3 structureChanged: true structureIsReused:: Not Elapsed: 1.9197921752929688ms
+Info 26   [17:39:32.084] Project '/dev/null/inferredProject1*' (Inferred)
+Info 27   [17:39:32.084] 	Files (10)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts
+
+
+	../node_modules/typescript/lib/lib.d.ts
+	  Default library for target 'es5'
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	sequence-generator.ts
+	  Root file specified for compilation
+	index.ts
+	  Root file specified for compilation
+	bfs-test.ts
+	  Root file specified for compilation
+
+Info 28   [17:39:32.084] -----------------------------------------------
+Info 29   [17:39:32.084] Project '/dev/null/inferredProject1*' (Inferred)
+Info 29   [17:39:32.084] 	Files (10)
+
+Info 29   [17:39:32.084] -----------------------------------------------
+Info 29   [17:39:32.084] Open files: 
+Info 29   [17:39:32.084] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 29   [17:39:32.084] 		Projects: /dev/null/inferredProject1*
+Info 29   [17:39:32.084] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 29   [17:39:32.084] 		Projects: /dev/null/inferredProject1*
+Info 29   [17:39:32.084] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 29   [17:39:32.084] 		Projects: /dev/null/inferredProject1*
+Perf 29   [17:39:32.084] 3::open: async elapsed time (in milliseconds) 2.3397
+Info 30   [17:39:32.084] request:
+    {
+      "seq": 4,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts"
+      }
+    }
+Perf 31   [17:39:32.095] 4::navtree: elapsed time (in milliseconds) 10.4682
+Info 32   [17:39:32.095] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":4,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":148,"offset":8}}],"childItems":[{"text":"Combiner","kind":"interface","kindModifiers":"","spans":[{"start":{"line":83,"offset":1},"end":{"line":86,"offset":2}}],"nameSpan":{"start":{"line":83,"offset":11},"end":{"line":83,"offset":19}},"childItems":[{"text":"combine","kind":"method","kindModifiers":"","spans":[{"start":{"line":85,"offset":5},"end":{"line":85,"offset":23}}],"nameSpan":{"start":{"line":85,"offset":5},"end":{"line":85,"offset":12}}}]},{"text":"ConcreteSequenceGenerator","kind":"class","kindModifiers":"","spans":[{"start":{"line":107,"offset":1},"end":{"line":117,"offset":2}}],"nameSpan":{"start":{"line":107,"offset":7},"end":{"line":107,"offset":32}},"childItems":[{"text":"constructor","kind":"constructor","kindModifiers":"","spans":[{"start":{"line":109,"offset":5},"end":{"line":111,"offset":6}}]},{"text":"getStartingSequence","kind":"method","kindModifiers":"","spans":[{"start":{"line":114,"offset":5},"end":{"line":116,"offset":6}}],"nameSpan":{"start":{"line":114,"offset":5},"end":{"line":114,"offset":24}}}]},{"text":"main","kind":"function","kindModifiers":"","spans":[{"start":{"line":144,"offset":1},"end":{"line":146,"offset":2}}],"nameSpan":{"start":{"line":144,"offset":10},"end":{"line":144,"offset":14}}},{"text":"NumberAdder","kind":"class","kindModifiers":"","spans":[{"start":{"line":99,"offset":1},"end":{"line":104,"offset":2}}],"nameSpan":{"start":{"line":99,"offset":7},"end":{"line":99,"offset":18}},"childItems":[{"text":"combine","kind":"method","kindModifiers":"","spans":[{"start":{"line":101,"offset":5},"end":{"line":103,"offset":6}}],"nameSpan":{"start":{"line":101,"offset":5},"end":{"line":101,"offset":12}},"childItems":[{"text":"l.reduce() callback","kind":"function","kindModifiers":"","spans":[{"start":{"line":102,"offset":25},"end":{"line":102,"offset":52}}]}]}]},{"text":"SequenceGenerator","kind":"class","kindModifiers":"abstract","spans":[{"start":{"line":52,"offset":1},"end":{"line":79,"offset":2}}],"nameSpan":{"start":{"line":52,"offset":16},"end":{"line":52,"offset":33}},"childItems":[{"text":"constructor","kind":"constructor","kindModifiers":"","spans":[{"start":{"line":61,"offset":5},"end":{"line":65,"offset":6}}]},{"text":"combiner","kind":"property","kindModifiers":"","spans":[{"start":{"line":54,"offset":5},"end":{"line":54,"offset":27}}],"nameSpan":{"start":{"line":54,"offset":5},"end":{"line":54,"offset":13}}},{"text":"generateSequence","kind":"method","kindModifiers":"","spans":[{"start":{"line":68,"offset":5},"end":{"line":75,"offset":6}}],"nameSpan":{"start":{"line":68,"offset":5},"end":{"line":68,"offset":21}},"childItems":[{"text":"i","kind":"var","kindModifiers":"","spans":[{"start":{"line":70,"offset":18},"end":{"line":70,"offset":23}}],"nameSpan":{"start":{"line":70,"offset":18},"end":{"line":70,"offset":19}}},{"text":"latest_window","kind":"const","kindModifiers":"","spans":[{"start":{"line":71,"offset":19},"end":{"line":71,"offset":84}}],"nameSpan":{"start":{"line":71,"offset":19},"end":{"line":71,"offset":32}}},{"text":"sequence","kind":"var","kindModifiers":"","spans":[{"start":{"line":69,"offset":13},"end":{"line":69,"offset":50}}],"nameSpan":{"start":{"line":69,"offset":13},"end":{"line":69,"offset":21}}}]},{"text":"generationLength","kind":"property","kindModifiers":"","spans":[{"start":{"line":58,"offset":5},"end":{"line":58,"offset":30}}],"nameSpan":{"start":{"line":58,"offset":5},"end":{"line":58,"offset":21}}},{"text":"getStartingSequence","kind":"method","kindModifiers":"abstract","spans":[{"start":{"line":78,"offset":5},"end":{"line":78,"offset":41}}],"nameSpan":{"start":{"line":78,"offset":14},"end":{"line":78,"offset":33}}},{"text":"windowSize","kind":"property","kindModifiers":"","spans":[{"start":{"line":56,"offset":5},"end":{"line":56,"offset":24}}],"nameSpan":{"start":{"line":56,"offset":5},"end":{"line":56,"offset":15}}}]}]}}
+Info 33   [17:39:32.098] request:
+    {
+      "seq": 5,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts"
+      }
+    }
+Perf 34   [17:39:32.099] 5::navtree: elapsed time (in milliseconds) 0.2180
+Info 35   [17:39:32.099] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":5,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":71,"offset":32}}]}}
+Info 36   [17:39:32.099] request:
+    {
+      "seq": 6,
+      "type": "request",
+      "command": "navtree",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts"
+      }
+    }
+Perf 37   [17:39:32.100] 6::navtree: elapsed time (in milliseconds) 0.6346
+Info 38   [17:39:32.100] response:
+    {"seq":0,"type":"response","command":"navtree","request_seq":6,"success":true,"body":{"text":"<global>","kind":"script","kindModifiers":"","spans":[{"start":{"line":1,"offset":1},"end":{"line":47,"offset":2}}],"childItems":[{"text":"A","kind":"class","kindModifiers":"","spans":[{"start":{"line":2,"offset":1},"end":{"line":16,"offset":2}}],"nameSpan":{"start":{"line":2,"offset":7},"end":{"line":2,"offset":8}},"childItems":[{"text":"constructor","kind":"constructor","kindModifiers":"","spans":[{"start":{"line":6,"offset":5},"end":{"line":8,"offset":6}}]},{"text":"aField","kind":"property","kindModifiers":"","spans":[{"start":{"line":4,"offset":5},"end":{"line":4,"offset":19}}],"nameSpan":{"start":{"line":4,"offset":5},"end":{"line":4,"offset":11}}},{"text":"M","kind":"method","kindModifiers":"","spans":[{"start":{"line":10,"offset":5},"end":{"line":15,"offset":6}}],"nameSpan":{"start":{"line":10,"offset":5},"end":{"line":10,"offset":6}},"childItems":[{"text":"b","kind":"const","kindModifiers":"","spans":[{"start":{"line":11,"offset":15},"end":{"line":11,"offset":26}}],"nameSpan":{"start":{"line":11,"offset":15},"end":{"line":11,"offset":16}}}]}]},{"text":"B","kind":"class","kindModifiers":"","spans":[{"start":{"line":25,"offset":1},"end":{"line":47,"offset":2}}],"nameSpan":{"start":{"line":25,"offset":7},"end":{"line":25,"offset":8}},"childItems":[{"text":"constructor","kind":"constructor","kindModifiers":"","spans":[{"start":{"line":33,"offset":5},"end":{"line":36,"offset":6}}]},{"text":"bField","kind":"property","kindModifiers":"","spans":[{"start":{"line":27,"offset":5},"end":{"line":27,"offset":19}}],"nameSpan":{"start":{"line":27,"offset":5},"end":{"line":27,"offset":11}}},{"text":"bField2","kind":"property","kindModifiers":"","spans":[{"start":{"line":29,"offset":5},"end":{"line":29,"offset":20}}],"nameSpan":{"start":{"line":29,"offset":5},"end":{"line":29,"offset":12}}},{"text":"bField3","kind":"property","kindModifiers":"","spans":[{"start":{"line":31,"offset":5},"end":{"line":31,"offset":20}}],"nameSpan":{"start":{"line":31,"offset":5},"end":{"line":31,"offset":12}}},{"text":"C","kind":"method","kindModifiers":"","spans":[{"start":{"line":39,"offset":5},"end":{"line":41,"offset":6}}],"nameSpan":{"start":{"line":39,"offset":5},"end":{"line":39,"offset":6}}},{"text":"D","kind":"method","kindModifiers":"","spans":[{"start":{"line":44,"offset":5},"end":{"line":46,"offset":6}}],"nameSpan":{"start":{"line":44,"offset":5},"end":{"line":44,"offset":6}}}]}]}}
+Info 39   [17:39:32.101] request:
+    {
+      "seq": 7,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "line": 52,
+        "offset": 1
+      }
+    }
+Info 40   [17:39:32.103] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts position 1938 in project /dev/null/inferredProject1*
+Perf 41   [17:39:32.123] 7::references: elapsed time (in milliseconds) 21.3414
+Info 42   [17:39:32.123] response:
+    {"seq":0,"type":"response","command":"references","request_seq":7,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":52,"offset":16},"end":{"line":52,"offset":33},"contextStart":{"line":52,"offset":1},"contextEnd":{"line":79,"offset":2},"isWriteAccess":true,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":107,"offset":41},"end":{"line":107,"offset":58},"isWriteAccess":false,"isDefinition":false}],"symbolName":"","symbolStartOffset":0,"symbolDisplayString":""}}
+Info 43   [17:39:32.124] request:
+    {
+      "seq": 8,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "line": 54,
+        "offset": 5
+      }
+    }
+Info 44   [17:39:32.125] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts position 2029 in project /dev/null/inferredProject1*
+Perf 45   [17:39:32.131] 8::references: elapsed time (in milliseconds) 6.4846
+Info 46   [17:39:32.131] response:
+    {"seq":0,"type":"response","command":"references","request_seq":8,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":54,"offset":5},"end":{"line":54,"offset":13},"contextStart":{"line":54,"offset":5},"contextEnd":{"line":54,"offset":27},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":64,"offset":14},"end":{"line":64,"offset":22},"isWriteAccess":true,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":72,"offset":32},"end":{"line":72,"offset":40},"isWriteAccess":false,"isDefinition":false}],"symbolName":"combiner","symbolStartOffset":5,"symbolDisplayString":"(property) SequenceGenerator<T>.combiner: Combiner<T>"}}
+Info 47   [17:39:32.132] request:
+    {
+      "seq": 9,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "line": 56,
+        "offset": 5
+      }
+    }
+Info 48   [17:39:32.132] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts position 2107 in project /dev/null/inferredProject1*
+Perf 49   [17:39:32.134] 9::references: elapsed time (in milliseconds) 1.7613
+Info 50   [17:39:32.134] response:
+    {"seq":0,"type":"response","command":"references","request_seq":9,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":56,"offset":5},"end":{"line":56,"offset":15},"contextStart":{"line":56,"offset":5},"contextEnd":{"line":56,"offset":24},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":62,"offset":14},"end":{"line":62,"offset":24},"isWriteAccess":true,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":71,"offset":73},"end":{"line":71,"offset":83},"isWriteAccess":false,"isDefinition":false}],"symbolName":"windowSize","symbolStartOffset":5,"symbolDisplayString":"(property) SequenceGenerator<T>.windowSize: number"}}
+Info 51   [17:39:32.135] request:
+    {
+      "seq": 10,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "line": 58,
+        "offset": 5
+      }
+    }
+Info 52   [17:39:32.135] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts position 2188 in project /dev/null/inferredProject1*
+Perf 53   [17:39:32.136] 10::references: elapsed time (in milliseconds) 1.5469
+Info 54   [17:39:32.136] response:
+    {"seq":0,"type":"response","command":"references","request_seq":10,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":58,"offset":5},"end":{"line":58,"offset":21},"contextStart":{"line":58,"offset":5},"contextEnd":{"line":58,"offset":30},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":63,"offset":14},"end":{"line":63,"offset":30},"isWriteAccess":true,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","start":{"line":70,"offset":34},"end":{"line":70,"offset":50},"isWriteAccess":false,"isDefinition":false}],"symbolName":"generationLength","symbolStartOffset":5,"symbolDisplayString":"(property) SequenceGenerator<T>.generationLength: number"}}

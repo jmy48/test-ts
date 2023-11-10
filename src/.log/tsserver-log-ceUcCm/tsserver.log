@@ -1,0 +1,885 @@
+Info 0    [19:36:07.599] Starting TS Server
+Info 1    [19:36:07.599] Version: 5.2.2
+Info 2    [19:36:07.599] Arguments: /usr/local/bin/node /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/tsserver.js --useInferredProjectPerProjectRoot --cancellationPipeName /private/var/folders/1k/1hld73x1599dxmy2mtdx1jg00000gn/T/3a59f0d4966a1d49f992295b112fe536/tscancellation* --logVerbosity verbose --logFile /Users/joshuaying/emblem/semantic-graph/test-ts/src/.log/tsserver-log-ceUcCm/tsserver.log --locale en --validateDefaultNpmLocation --useNodeIpc
+Info 3    [19:36:07.599] Platform: darwin NodeVersion: v19.6.0 CaseSensitive: false
+Info 4    [19:36:07.599] ServerMode: undefined hasUnknownServerMode: undefined
+Info 5    [19:36:07.602] Binding...
+Info 6    [19:36:07.604] request:
+    {
+      "seq": 0,
+      "type": "request",
+      "command": "configure",
+      "arguments": {
+        "formatOptions": {
+          "newLineCharacter": "\n"
+        },
+        "preferences": {
+          "allowIncompleteCompletions": true,
+          "allowRenameOfImportPath": true,
+          "allowTextChangesInNewFiles": true,
+          "disableLineTextInReferences": true,
+          "disableSuggestions": false,
+          "displayPartsForJSDoc": true,
+          "generateReturnInDocTemplate": true,
+          "importModuleSpecifierEnding": "auto",
+          "importModuleSpecifierPreference": "shortest",
+          "includeAutomaticOptionalChainCompletions": true,
+          "includeCompletionsForImportStatements": true,
+          "includeCompletionsForModuleExports": true,
+          "includeCompletionsWithClassMemberSnippets": true,
+          "includeCompletionsWithInsertText": true,
+          "includeCompletionsWithObjectLiteralMethodSnippets": true,
+          "includeCompletionsWithSnippetText": true,
+          "includeInlayEnumMemberValueHints": false,
+          "includeInlayFunctionLikeReturnTypeHints": false,
+          "includeInlayFunctionParameterTypeHints": false,
+          "includeInlayParameterNameHints": "none",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": false,
+          "includeInlayVariableTypeHints": false,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includePackageJsonAutoImports": "auto",
+          "jsxAttributeCompletionStyle": "auto",
+          "lazyConfiguredProjectsFromExternalProject": false,
+          "organizeImportsAccentCollation": true,
+          "organizeImportsCaseFirst": false,
+          "organizeImportsCollation": "ordinal",
+          "organizeImportsCollationLocale": "en",
+          "organizeImportsIgnoreCase": "auto",
+          "organizeImportsNumericCollation": false,
+          "providePrefixAndSuffixTextForRename": true,
+          "provideRefactorNotApplicableReason": true,
+          "quotePreference": "auto"
+        }
+      }
+    }
+Info 7    [19:36:07.605] Format host information updated
+Info 8    [19:36:07.605] response:
+    {"seq":0,"type":"response","command":"configure","request_seq":0,"success":true}
+Perf 9    [19:36:07.605] 0::configure: async elapsed time (in milliseconds) 0.4283
+Info 10   [19:36:07.605] event:
+    {"seq":0,"type":"event","event":"typingsInstallerPid","body":{"pid":37650}}
+Info 11   [19:36:07.605] request:
+    {
+      "seq": 1,
+      "type": "request",
+      "command": "compilerOptionsForInferredProjects",
+      "arguments": {
+        "options": {
+          "module": "ESNext",
+          "moduleResolution": "Node",
+          "target": "ES2020",
+          "jsx": "React",
+          "strictNullChecks": true,
+          "strictFunctionTypes": true,
+          "sourceMap": true,
+          "allowJs": true,
+          "allowNonTsExtensions": true,
+          "allowSyntheticDefaultImports": true,
+          "resolveJsonModule": true
+        }
+      }
+    }
+Perf 12   [19:36:07.605] 1::compilerOptionsForInferredProjects: elapsed time (in milliseconds) 0.1618
+Info 13   [19:36:07.605] response:
+    {"seq":0,"type":"response","command":"compilerOptionsForInferredProjects","request_seq":1,"success":true,"body":true}
+Info 14   [19:36:07.605] request:
+    {
+      "seq": 2,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts",
+        "fileContent": "// abstract class SequenceGenerator<T> {\n//     combiner: Combiner<T>;\n//     windowSize: number;\n//     generationLength: number;\n\n//     constructor(windowSize: number, generationLength: number, combiner: Combiner<T>) {\n//         this.windowSize = windowSize;\n//         this.generationLength = generationLength;\n//         this.combiner = combiner;\n//     }\n\n//     generateSequence(): T[] {\n//         var sequence = this.getStartingSequence();\n//         for (var i = 0; i < this.generationLength; i++) {\n//             const latest_window = sequence.slice(sequence.length - this.windowSize);\n//             sequence.push(this.combiner.combine(latest_window))\n//         }\n//         return sequence;\n//     }\n\n//     abstract getStartingSequence(): T[];\n// }\n\n\n// interface Combiner<T> {\n//     combine(l: T[]): T\n// }\n\n// class NumberAdder implements Combiner<number> {\n//     combine(l: number[]): number {\n//         return l.reduce((prev, curr) => prev + curr)\n//     }\n// }\n\n// class ConcreteSequenceGenerator extends SequenceGenerator<number> {\n//     constructor(generationLength: number) {\n//         super(2, generationLength, new NumberAdder());\n//     }\n\n//     getStartingSequence(): number[] {\n//         return [0, 1];\n//     }\n// }\n\n// function main() {\n//     console.log((new ConcreteSequenceGenerator(10)).generateSequence());\n// }\n\n// main();",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 15   [19:36:07.606] Search path: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 16   [19:36:07.606] For info: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts :: No config files found.
+Info 17   [19:36:07.607] FileWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/src/tsconfig.json 2000 undefined WatchType: Config file for the inferred project root
+Info 18   [19:36:07.608] FileWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/src/jsconfig.json 2000 undefined WatchType: Config file for the inferred project root
+Info 19   [19:36:07.608] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 20   [19:36:07.613] DirectoryWatcher:: Added:: WatchInfo: /users/joshuaying/emblem/semantic-graph/test-ts/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
+Info 21   [19:36:07.614] Elapsed:: 0.4672088623046875ms DirectoryWatcher:: Added:: WatchInfo: /users/joshuaying/emblem/semantic-graph/test-ts/node_modules 1 undefined WatchType: node_modules for closed script infos and package.jsons affecting module specifier cache
+Info 22   [19:36:07.617] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/src/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 23   [19:36:07.617] Elapsed:: 0.04166698455810547ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/src/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 24   [19:36:07.617] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 25   [19:36:07.617] Elapsed:: 0.006041049957275391ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 26   [19:36:07.617] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 27   [19:36:07.617] Elapsed:: 0.03566694259643555ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 28   [19:36:07.617] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 29   [19:36:07.617] Elapsed:: 0.02666616439819336ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/node_modules 1 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 30   [19:36:07.859] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/src/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 31   [19:36:07.860] Elapsed:: 0.0761251449584961ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/src/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 32   [19:36:07.860] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 33   [19:36:07.860] Elapsed:: 0.029333114624023438ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 34   [19:36:07.860] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 35   [19:36:07.860] Elapsed:: 0.09299993515014648ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/semantic-graph/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 36   [19:36:07.860] DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 37   [19:36:07.860] Elapsed:: 0.08212518692016602ms DirectoryWatcher:: Added:: WatchInfo: /Users/joshuaying/emblem/node_modules/@types 1 undefined Project: /dev/null/inferredProject1* WatchType: Type roots
+Info 38   [19:36:07.860] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 251.7209997177124ms
+Info 39   [19:36:07.860] Project '/dev/null/inferredProject1*' (Inferred)
+Info 40   [19:36:07.861] 	Files (49)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2016.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.iterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.core.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.collection.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.generator.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.date.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.object.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.array.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.object.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.symbol.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.date.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.number.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.full.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+
+
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.d.ts
+	  Library referenced via 'es2015' from file '../node_modules/typescript/lib/lib.es2016.d.ts'
+	../node_modules/typescript/lib/lib.es2016.d.ts
+	  Library referenced via 'es2016' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.d.ts
+	  Library referenced via 'es2017' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.d.ts
+	  Library referenced via 'es2018' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.d.ts
+	  Library referenced via 'es2019' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.d.ts
+	  Library referenced via 'es2020' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.dom.iterable.d.ts
+	  Library referenced via 'dom.iterable' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.es2015.core.d.ts
+	  Library referenced via 'es2015.core' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.collection.d.ts
+	  Library referenced via 'es2015.collection' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.generator.d.ts
+	  Library referenced via 'es2015.generator' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2015.generator.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2019.object.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2020.string.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts'
+	../node_modules/typescript/lib/lib.es2015.promise.d.ts
+	  Library referenced via 'es2015.promise' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	  Library referenced via 'es2015.proxy' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	  Library referenced via 'es2015.reflect' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.iterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts'
+	../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	  Library referenced via 'es2015.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	../node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	  Library referenced via 'es2016.array.include' from file '../node_modules/typescript/lib/lib.es2016.d.ts'
+	../node_modules/typescript/lib/lib.es2017.date.d.ts
+	  Library referenced via 'es2017.date' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.object.d.ts
+	  Library referenced via 'es2017.object' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	  Library referenced via 'es2017.sharedmemory' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.string.d.ts
+	  Library referenced via 'es2017.string' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.intl.d.ts
+	  Library referenced via 'es2017.intl' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	  Library referenced via 'es2017.typedarrays' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	  Library referenced via 'es2018.asyncgenerator' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	  Library referenced via 'es2018.asynciterable' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.asynciterable' from file '../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
+	../node_modules/typescript/lib/lib.es2018.intl.d.ts
+	  Library referenced via 'es2018.intl' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.intl' from file '../node_modules/typescript/lib/lib.es2020.intl.d.ts'
+	../node_modules/typescript/lib/lib.es2018.promise.d.ts
+	  Library referenced via 'es2018.promise' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	  Library referenced via 'es2018.regexp' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2019.array.d.ts
+	  Library referenced via 'es2019.array' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.object.d.ts
+	  Library referenced via 'es2019.object' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.string.d.ts
+	  Library referenced via 'es2019.string' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.symbol.d.ts
+	  Library referenced via 'es2019.symbol' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.intl.d.ts
+	  Library referenced via 'es2019.intl' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	  Library referenced via 'es2020.bigint' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.date.d.ts
+	  Library referenced via 'es2020.date' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.promise.d.ts
+	  Library referenced via 'es2020.promise' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts
+	  Library referenced via 'es2020.sharedmemory' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.string.d.ts
+	  Library referenced via 'es2020.string' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts
+	  Library referenced via 'es2020.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.intl.d.ts
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.bigint.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.date.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.number.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.number.d.ts
+	  Library referenced via 'es2020.number' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.es2020.full.d.ts
+	  Default library for target 'es2020'
+	sequence-generator.ts
+	  Root file specified for compilation
+
+Info 41   [19:36:07.862] -----------------------------------------------
+Info 42   [19:36:07.864] FileWatcher:: Added:: WatchInfo: /users/joshuaying/emblem/semantic-graph/test-ts/package.json 250 undefined WatchType: package.json file
+Info 43   [19:36:07.864] Project '/dev/null/inferredProject1*' (Inferred)
+Info 43   [19:36:07.864] 	Files (49)
+
+Info 43   [19:36:07.864] -----------------------------------------------
+Info 43   [19:36:07.864] Open files: 
+Info 43   [19:36:07.864] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 43   [19:36:07.864] 		Projects: /dev/null/inferredProject1*
+Perf 43   [19:36:07.864] 2::open: async elapsed time (in milliseconds) 258.6881
+Info 44   [19:36:07.864] request:
+    {
+      "seq": 3,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+        "fileContent": "// // demonstrating why we need to bubble up from child to parent\n// type WrappedType = number | void;\n\n// type WrapperType = {\n//   a: string,\n//   b: WrappedType\n// }\n\n// function f() {\n//   const x: WrapperType = {\n//     a: 'hello',\n//     b: 5\n//   }\n\n//   console.log(x.b);\n// }\n\n// interface I {\n//   m(): string;\n// }\n\n// class C implements I {\n//   m() {\n//     return \"hello\";\n//   }\n// }\n\n\n\n/*\n// Tests for LSP idiosyncracy where subclass overriding / implementation methods are referencedBy the superclass method/field.\n// method1 should NOT referenceInDefinition B.method2 (only A.method2)\nabstract class A {\n  method1() {\n    this.method2()\n  }\n  abstract method2();\n}\n\nclass B extends A {\n  method2() {}\n}\n*/\n\n\n\n/*\n// Tests for bubbling children's referenceInDefinition up to parents.\n// A should referenceInDefinition B.\nfunction B() {}\n\nclass A {\n  m1() {\n    B()\n  }\n}\n*/\n\n// class A {\n//   b: B\n// }\n\n// class B {\n//   a: A\n//   constructor(a: A) {\n//     this.a = a;\n//     this.a.b = this;\n//   }\n// }\n\n// console.log(new B(new A()));",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 45   [19:36:07.864] Search path: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 46   [19:36:07.864] For info: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts :: No config files found.
+Info 47   [19:36:07.864] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 48   [19:36:07.868] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 2 structureChanged: true structureIsReused:: Not Elapsed: 3.6874170303344727ms
+Info 49   [19:36:07.868] Project '/dev/null/inferredProject1*' (Inferred)
+Info 50   [19:36:07.869] 	Files (50)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2016.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.iterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.core.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.collection.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.generator.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.date.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.object.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.array.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.object.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.symbol.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.date.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.number.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.full.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+
+
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.d.ts
+	  Library referenced via 'es2015' from file '../node_modules/typescript/lib/lib.es2016.d.ts'
+	../node_modules/typescript/lib/lib.es2016.d.ts
+	  Library referenced via 'es2016' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.d.ts
+	  Library referenced via 'es2017' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.d.ts
+	  Library referenced via 'es2018' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.d.ts
+	  Library referenced via 'es2019' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.d.ts
+	  Library referenced via 'es2020' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.dom.iterable.d.ts
+	  Library referenced via 'dom.iterable' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.es2015.core.d.ts
+	  Library referenced via 'es2015.core' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.collection.d.ts
+	  Library referenced via 'es2015.collection' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.generator.d.ts
+	  Library referenced via 'es2015.generator' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2015.generator.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2019.object.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2020.string.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts'
+	../node_modules/typescript/lib/lib.es2015.promise.d.ts
+	  Library referenced via 'es2015.promise' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	  Library referenced via 'es2015.proxy' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	  Library referenced via 'es2015.reflect' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.iterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts'
+	../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	  Library referenced via 'es2015.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	../node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	  Library referenced via 'es2016.array.include' from file '../node_modules/typescript/lib/lib.es2016.d.ts'
+	../node_modules/typescript/lib/lib.es2017.date.d.ts
+	  Library referenced via 'es2017.date' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.object.d.ts
+	  Library referenced via 'es2017.object' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	  Library referenced via 'es2017.sharedmemory' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.string.d.ts
+	  Library referenced via 'es2017.string' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.intl.d.ts
+	  Library referenced via 'es2017.intl' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	  Library referenced via 'es2017.typedarrays' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	  Library referenced via 'es2018.asyncgenerator' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	  Library referenced via 'es2018.asynciterable' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.asynciterable' from file '../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
+	../node_modules/typescript/lib/lib.es2018.intl.d.ts
+	  Library referenced via 'es2018.intl' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.intl' from file '../node_modules/typescript/lib/lib.es2020.intl.d.ts'
+	../node_modules/typescript/lib/lib.es2018.promise.d.ts
+	  Library referenced via 'es2018.promise' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	  Library referenced via 'es2018.regexp' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2019.array.d.ts
+	  Library referenced via 'es2019.array' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.object.d.ts
+	  Library referenced via 'es2019.object' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.string.d.ts
+	  Library referenced via 'es2019.string' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.symbol.d.ts
+	  Library referenced via 'es2019.symbol' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.intl.d.ts
+	  Library referenced via 'es2019.intl' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	  Library referenced via 'es2020.bigint' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.date.d.ts
+	  Library referenced via 'es2020.date' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.promise.d.ts
+	  Library referenced via 'es2020.promise' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts
+	  Library referenced via 'es2020.sharedmemory' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.string.d.ts
+	  Library referenced via 'es2020.string' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts
+	  Library referenced via 'es2020.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.intl.d.ts
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.bigint.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.date.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.number.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.number.d.ts
+	  Library referenced via 'es2020.number' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.es2020.full.d.ts
+	  Default library for target 'es2020'
+	sequence-generator.ts
+	  Root file specified for compilation
+	index.ts
+	  Root file specified for compilation
+
+Info 51   [19:36:07.869] -----------------------------------------------
+Info 52   [19:36:07.869] Project '/dev/null/inferredProject1*' (Inferred)
+Info 52   [19:36:07.869] 	Files (50)
+
+Info 52   [19:36:07.869] -----------------------------------------------
+Info 52   [19:36:07.869] Open files: 
+Info 52   [19:36:07.869] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 52   [19:36:07.869] 		Projects: /dev/null/inferredProject1*
+Info 52   [19:36:07.869] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 52   [19:36:07.869] 		Projects: /dev/null/inferredProject1*
+Perf 52   [19:36:07.869] 3::open: async elapsed time (in milliseconds) 4.7430
+Info 53   [19:36:07.869] request:
+    {
+      "seq": 4,
+      "type": "request",
+      "command": "open",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "fileContent": "class A {\n    aField: number\n    constructor() {\n        this.aField = 3\n    }\n    M() {\n        const b = new B();\n        b.C();\n        b.bField2;\n        this.aField;\n    }\n}\n\nclass B {\n    bField: number\n    bField2: number\n    bField3: number\n    constructor() {\n        this.bField = 4;\n        this.bField2 = 6;\n        this.bField3 = 8;\n    }\n\n    C() {\n        this.bField;\n    }\n\n    D() {\n\n    }\n}",
+        "scriptKindName": "TS",
+        "projectRootPath": "/Users/joshuaying/emblem/semantic-graph/test-ts/src"
+      }
+    }
+Info 54   [19:36:07.869] Search path: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 55   [19:36:07.869] For info: /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts :: No config files found.
+Info 56   [19:36:07.869] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 57   [19:36:07.878] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 3 structureChanged: true structureIsReused:: Not Elapsed: 8.747041702270508ms
+Info 58   [19:36:07.878] Project '/dev/null/inferredProject1*' (Inferred)
+Info 59   [19:36:07.878] 	Files (51)
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es5.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2016.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.dom.iterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.scripthost.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.core.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.collection.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.generator.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.date.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.object.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.array.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.object.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.symbol.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2019.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.date.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.promise.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.string.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.intl.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.number.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/node_modules/typescript/lib/lib.es2020.full.d.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts
+	/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts
+
+
+	../node_modules/typescript/lib/lib.es5.d.ts
+	  Library referenced via 'es5' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.d.ts
+	  Library referenced via 'es2015' from file '../node_modules/typescript/lib/lib.es2016.d.ts'
+	../node_modules/typescript/lib/lib.es2016.d.ts
+	  Library referenced via 'es2016' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.d.ts
+	  Library referenced via 'es2017' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.d.ts
+	  Library referenced via 'es2018' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.d.ts
+	  Library referenced via 'es2019' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.d.ts
+	  Library referenced via 'es2020' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.dom.d.ts
+	  Library referenced via 'dom' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.dom.iterable.d.ts
+	  Library referenced via 'dom.iterable' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.webworker.importscripts.d.ts
+	  Library referenced via 'webworker.importscripts' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.scripthost.d.ts
+	  Library referenced via 'scripthost' from file '../node_modules/typescript/lib/lib.es2020.full.d.ts'
+	../node_modules/typescript/lib/lib.es2015.core.d.ts
+	  Library referenced via 'es2015.core' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.collection.d.ts
+	  Library referenced via 'es2015.collection' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.generator.d.ts
+	  Library referenced via 'es2015.generator' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.iterable.d.ts
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2015.generator.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2019.object.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2020.string.d.ts'
+	  Library referenced via 'es2015.iterable' from file '../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts'
+	../node_modules/typescript/lib/lib.es2015.promise.d.ts
+	  Library referenced via 'es2015.promise' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.proxy.d.ts
+	  Library referenced via 'es2015.proxy' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.reflect.d.ts
+	  Library referenced via 'es2015.reflect' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	../node_modules/typescript/lib/lib.es2015.symbol.d.ts
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.iterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts'
+	  Library referenced via 'es2015.symbol' from file '../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts'
+	../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts
+	  Library referenced via 'es2015.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2015.d.ts'
+	  Library referenced via 'es2015.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts'
+	../node_modules/typescript/lib/lib.es2016.array.include.d.ts
+	  Library referenced via 'es2016.array.include' from file '../node_modules/typescript/lib/lib.es2016.d.ts'
+	../node_modules/typescript/lib/lib.es2017.date.d.ts
+	  Library referenced via 'es2017.date' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.object.d.ts
+	  Library referenced via 'es2017.object' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts
+	  Library referenced via 'es2017.sharedmemory' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.string.d.ts
+	  Library referenced via 'es2017.string' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.intl.d.ts
+	  Library referenced via 'es2017.intl' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts
+	  Library referenced via 'es2017.typedarrays' from file '../node_modules/typescript/lib/lib.es2017.d.ts'
+	../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts
+	  Library referenced via 'es2018.asyncgenerator' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts
+	  Library referenced via 'es2018.asynciterable' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.asynciterable' from file '../node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts'
+	../node_modules/typescript/lib/lib.es2018.intl.d.ts
+	  Library referenced via 'es2018.intl' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	  Library referenced via 'es2018.intl' from file '../node_modules/typescript/lib/lib.es2020.intl.d.ts'
+	../node_modules/typescript/lib/lib.es2018.promise.d.ts
+	  Library referenced via 'es2018.promise' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2018.regexp.d.ts
+	  Library referenced via 'es2018.regexp' from file '../node_modules/typescript/lib/lib.es2018.d.ts'
+	../node_modules/typescript/lib/lib.es2019.array.d.ts
+	  Library referenced via 'es2019.array' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.object.d.ts
+	  Library referenced via 'es2019.object' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.string.d.ts
+	  Library referenced via 'es2019.string' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.symbol.d.ts
+	  Library referenced via 'es2019.symbol' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2019.intl.d.ts
+	  Library referenced via 'es2019.intl' from file '../node_modules/typescript/lib/lib.es2019.d.ts'
+	../node_modules/typescript/lib/lib.es2020.bigint.d.ts
+	  Library referenced via 'es2020.bigint' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.date.d.ts
+	  Library referenced via 'es2020.date' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.promise.d.ts
+	  Library referenced via 'es2020.promise' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts
+	  Library referenced via 'es2020.sharedmemory' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.string.d.ts
+	  Library referenced via 'es2020.string' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts
+	  Library referenced via 'es2020.symbol.wellknown' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.intl.d.ts
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.bigint.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.date.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.number.d.ts'
+	  Library referenced via 'es2020.intl' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.es2020.number.d.ts
+	  Library referenced via 'es2020.number' from file '../node_modules/typescript/lib/lib.es2020.d.ts'
+	../node_modules/typescript/lib/lib.decorators.d.ts
+	  Library referenced via 'decorators' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.decorators.legacy.d.ts
+	  Library referenced via 'decorators.legacy' from file '../node_modules/typescript/lib/lib.es5.d.ts'
+	../node_modules/typescript/lib/lib.es2020.full.d.ts
+	  Default library for target 'es2020'
+	sequence-generator.ts
+	  Root file specified for compilation
+	index.ts
+	  Root file specified for compilation
+	bfs-test.ts
+	  Root file specified for compilation
+
+Info 60   [19:36:07.878] -----------------------------------------------
+Info 61   [19:36:07.879] Project '/dev/null/inferredProject1*' (Inferred)
+Info 61   [19:36:07.879] 	Files (51)
+
+Info 61   [19:36:07.879] -----------------------------------------------
+Info 61   [19:36:07.879] Open files: 
+Info 61   [19:36:07.879] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 61   [19:36:07.879] 		Projects: /dev/null/inferredProject1*
+Info 61   [19:36:07.879] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 61   [19:36:07.879] 		Projects: /dev/null/inferredProject1*
+Info 61   [19:36:07.879] 	FileName: /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts ProjectRootPath: /Users/joshuaying/emblem/semantic-graph/test-ts/src
+Info 61   [19:36:07.879] 		Projects: /dev/null/inferredProject1*
+Perf 61   [19:36:07.879] 4::open: async elapsed time (in milliseconds) 9.8869
+Info 62   [19:36:07.879] request:
+    {
+      "seq": 5,
+      "type": "request",
+      "command": "geterr",
+      "arguments": {
+        "delay": 0,
+        "files": [
+          "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+          "/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts",
+          "/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts"
+        ]
+      }
+    }
+Perf 63   [19:36:07.879] 5::geterr: async elapsed time (in milliseconds) 0.4276
+Info 64   [19:36:07.881] event:
+    {"seq":0,"type":"event","event":"syntaxDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","diagnostics":[]}}
+Info 65   [19:36:07.891] event:
+    {"seq":0,"type":"event","event":"semanticDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","diagnostics":[]}}
+Info 66   [19:36:07.891] request:
+    {
+      "seq": 6,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 2,
+        "offset": 5
+      }
+    }
+Info 67   [19:36:07.894] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 14 in project /dev/null/inferredProject1*
+Perf 68   [19:36:07.913] 6::references: elapsed time (in milliseconds) 22.1220
+Info 69   [19:36:07.913] response:
+    {"seq":0,"type":"response","command":"references","request_seq":6,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":2,"offset":5},"end":{"line":2,"offset":11},"contextStart":{"line":2,"offset":5},"contextEnd":{"line":2,"offset":19},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":4,"offset":14},"end":{"line":4,"offset":20},"isWriteAccess":true,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":10,"offset":14},"end":{"line":10,"offset":20},"isWriteAccess":false,"isDefinition":false}],"symbolName":"aField","symbolStartOffset":5,"symbolDisplayString":"(property) A.aField: number"}}
+Info 70   [19:36:07.914] event:
+    {"seq":0,"type":"event","event":"suggestionDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","diagnostics":[]}}
+Info 71   [19:36:07.914] event:
+    {"seq":0,"type":"event","event":"syntaxDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","diagnostics":[]}}
+Info 72   [19:36:07.914] event:
+    {"seq":0,"type":"event","event":"semanticDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","diagnostics":[]}}
+Info 73   [19:36:07.915] request:
+    {
+      "seq": 7,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 3,
+        "offset": 5
+      }
+    }
+Info 74   [19:36:07.915] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 33 in project /dev/null/inferredProject1*
+Perf 75   [19:36:07.925] 7::references: elapsed time (in milliseconds) 10.8323
+Info 76   [19:36:07.925] response:
+    {"seq":0,"type":"response","command":"references","request_seq":7,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":3,"offset":5},"end":{"line":3,"offset":16},"contextStart":{"line":3,"offset":5},"contextEnd":{"line":5,"offset":6},"isWriteAccess":false,"isDefinition":true}],"symbolName":"constructor","symbolStartOffset":5,"symbolDisplayString":"constructor A(): A"}}
+Info 77   [19:36:07.926] event:
+    {"seq":0,"type":"event","event":"suggestionDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/index.ts","diagnostics":[]}}
+Info 78   [19:36:07.926] request:
+    {
+      "seq": 8,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 6,
+        "offset": 5
+      }
+    }
+Info 79   [19:36:07.927] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 83 in project /dev/null/inferredProject1*
+Perf 80   [19:36:07.927] 8::references: elapsed time (in milliseconds) 1.0533
+Info 81   [19:36:07.927] response:
+    {"seq":0,"type":"response","command":"references","request_seq":8,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":6,"offset":5},"end":{"line":6,"offset":6},"contextStart":{"line":6,"offset":5},"contextEnd":{"line":11,"offset":6},"isWriteAccess":true,"isDefinition":true}],"symbolName":"M","symbolStartOffset":5,"symbolDisplayString":"(method) A.M(): void"}}
+Info 82   [19:36:07.927] event:
+    {"seq":0,"type":"event","event":"syntaxDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","diagnostics":[]}}
+Info 83   [19:36:07.927] event:
+    {"seq":0,"type":"event","event":"semanticDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","diagnostics":[]}}
+Info 84   [19:36:07.928] event:
+    {"seq":0,"type":"event","event":"suggestionDiag","body":{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/sequence-generator.ts","diagnostics":[]}}
+Info 85   [19:36:07.928] event:
+    {"seq":0,"type":"event","event":"requestCompleted","body":{"request_seq":5}}
+Info 86   [19:36:07.928] request:
+    {
+      "seq": 9,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 14,
+        "offset": 1
+      }
+    }
+Info 87   [19:36:07.928] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 180 in project /dev/null/inferredProject1*
+Perf 88   [19:36:07.929] 9::references: elapsed time (in milliseconds) 0.9038
+Info 89   [19:36:07.929] response:
+    {"seq":0,"type":"response","command":"references","request_seq":9,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":7,"offset":23},"end":{"line":7,"offset":24},"isWriteAccess":false,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":14,"offset":7},"end":{"line":14,"offset":8},"contextStart":{"line":14,"offset":1},"contextEnd":{"line":31,"offset":2},"isWriteAccess":true,"isDefinition":true}],"symbolName":"class","symbolStartOffset":1,"symbolDisplayString":"class B"}}
+Info 90   [19:36:07.929] request:
+    {
+      "seq": 10,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 15,
+        "offset": 5
+      }
+    }
+Info 91   [19:36:07.929] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 194 in project /dev/null/inferredProject1*
+Perf 92   [19:36:07.930] 10::references: elapsed time (in milliseconds) 0.6817
+Info 93   [19:36:07.930] response:
+    {"seq":0,"type":"response","command":"references","request_seq":10,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":15,"offset":5},"end":{"line":15,"offset":11},"contextStart":{"line":15,"offset":5},"contextEnd":{"line":15,"offset":19},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":19,"offset":14},"end":{"line":19,"offset":20},"isWriteAccess":true,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":25,"offset":14},"end":{"line":25,"offset":20},"isWriteAccess":false,"isDefinition":false}],"symbolName":"bField","symbolStartOffset":5,"symbolDisplayString":"(property) B.bField: number"}}
+Info 94   [19:36:07.931] request:
+    {
+      "seq": 11,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 16,
+        "offset": 5
+      }
+    }
+Info 95   [19:36:07.931] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 213 in project /dev/null/inferredProject1*
+Perf 96   [19:36:07.931] 11::references: elapsed time (in milliseconds) 0.7218
+Info 97   [19:36:07.931] response:
+    {"seq":0,"type":"response","command":"references","request_seq":11,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":9,"offset":11},"end":{"line":9,"offset":18},"isWriteAccess":false,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":16,"offset":5},"end":{"line":16,"offset":12},"contextStart":{"line":16,"offset":5},"contextEnd":{"line":16,"offset":20},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":20,"offset":14},"end":{"line":20,"offset":21},"isWriteAccess":true,"isDefinition":false}],"symbolName":"bField2","symbolStartOffset":5,"symbolDisplayString":"(property) B.bField2: number"}}
+Info 98   [19:36:07.932] request:
+    {
+      "seq": 12,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 17,
+        "offset": 5
+      }
+    }
+Info 99   [19:36:07.932] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 233 in project /dev/null/inferredProject1*
+Perf 100  [19:36:07.933] 12::references: elapsed time (in milliseconds) 0.8205
+Info 101  [19:36:07.933] response:
+    {"seq":0,"type":"response","command":"references","request_seq":12,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":17,"offset":5},"end":{"line":17,"offset":12},"contextStart":{"line":17,"offset":5},"contextEnd":{"line":17,"offset":20},"isWriteAccess":false,"isDefinition":true},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":21,"offset":14},"end":{"line":21,"offset":21},"isWriteAccess":true,"isDefinition":false}],"symbolName":"bField3","symbolStartOffset":5,"symbolDisplayString":"(property) B.bField3: number"}}
+Info 102  [19:36:07.933] request:
+    {
+      "seq": 13,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 18,
+        "offset": 5
+      }
+    }
+Info 103  [19:36:07.934] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 253 in project /dev/null/inferredProject1*
+Perf 104  [19:36:07.934] 13::references: elapsed time (in milliseconds) 0.8832
+Info 105  [19:36:07.934] response:
+    {"seq":0,"type":"response","command":"references","request_seq":13,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":7,"offset":23},"end":{"line":7,"offset":24},"isWriteAccess":false,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":18,"offset":5},"end":{"line":18,"offset":16},"contextStart":{"line":18,"offset":5},"contextEnd":{"line":22,"offset":6},"isWriteAccess":false,"isDefinition":true}],"symbolName":"constructor","symbolStartOffset":5,"symbolDisplayString":"constructor B(): B"}}
+Info 106  [19:36:07.935] request:
+    {
+      "seq": 14,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 24,
+        "offset": 5
+      }
+    }
+Info 107  [19:36:07.935] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 357 in project /dev/null/inferredProject1*
+Perf 108  [19:36:07.936] 14::references: elapsed time (in milliseconds) 0.9775
+Info 109  [19:36:07.936] response:
+    {"seq":0,"type":"response","command":"references","request_seq":14,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":8,"offset":11},"end":{"line":8,"offset":12},"isWriteAccess":false,"isDefinition":false},{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":24,"offset":5},"end":{"line":24,"offset":6},"contextStart":{"line":24,"offset":5},"contextEnd":{"line":26,"offset":6},"isWriteAccess":true,"isDefinition":true}],"symbolName":"C","symbolStartOffset":5,"symbolDisplayString":"(method) B.C(): void"}}
+Info 110  [19:36:07.936] request:
+    {
+      "seq": 15,
+      "type": "request",
+      "command": "references",
+      "arguments": {
+        "file": "/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts",
+        "line": 28,
+        "offset": 5
+      }
+    }
+Info 111  [19:36:07.937] Finding references to /Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts position 395 in project /dev/null/inferredProject1*
+Perf 112  [19:36:07.937] 15::references: elapsed time (in milliseconds) 0.9426
+Info 113  [19:36:07.937] response:
+    {"seq":0,"type":"response","command":"references","request_seq":15,"success":true,"body":{"refs":[{"file":"/Users/joshuaying/emblem/semantic-graph/test-ts/src/bfs-test.ts","start":{"line":28,"offset":5},"end":{"line":28,"offset":6},"contextStart":{"line":28,"offset":5},"contextEnd":{"line":30,"offset":6},"isWriteAccess":true,"isDefinition":true}],"symbolName":"D","symbolStartOffset":5,"symbolDisplayString":"(method) B.D(): void"}}
