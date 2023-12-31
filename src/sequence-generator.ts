@@ -32,13 +32,19 @@ class NumberAdder implements Combiner<number> {
     }
 }
 
-class ConcreteSequenceGenerator extends SequenceGenerator<number> {
+class StringConcatenator implements Combiner<string> {
+    combine(l: string[]): string {
+        return l.reduce((prev, curr) => prev + curr)
+    }
+}
+
+class ConcreteSequenceGenerator extends SequenceGenerator<string> {
     constructor(generationLength: number) {
-        super(2, generationLength, new NumberAdder());
+        super(2, generationLength, new StringConcatenator());
     }
 
-    getStartingSequence(): number[] {
-        return [0, 1];
+    getStartingSequence(): string[] {
+        return ["hi", "bye"];
     }
 }
 
